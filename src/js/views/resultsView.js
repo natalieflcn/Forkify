@@ -8,8 +8,6 @@ class ResultsView extends View {
   _message = '';
 
   _generateMarkup() {
-    console.log(this._data);
-
     return this._data.map(rec => this._generateMarkupPreview(rec)).join();
   }
 
