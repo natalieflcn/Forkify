@@ -61,12 +61,10 @@ export const getSearchResultsPage = function (page = state.search.page) {
 };
 
 export const updateServings = function (newServings) {
-  console.log(state.recipe.ingredients);
-
   state.recipe.ingredients.forEach(ing => {
     console.log(ing);
     ing.quantity = (ing.quantity * newServings) / state.recipe.servings;
   });
-  console.log(state.recipe.ingredients);
+
   state.recipe.servings = newServings;
 };
