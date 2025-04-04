@@ -8,8 +8,7 @@ export default class View {
       return this.renderError();
     }
     this._data = data;
-    console.log(data); // bookmarks array is the data, bookmarks-list is parent el
-    //preview view is the this keyword
+
     const markup = this._generateMarkup();
 
     if (!render) return markup;
