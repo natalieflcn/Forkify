@@ -5,6 +5,7 @@ import * as model from './model.js';
 import recipeView from './views/recipeView.js';
 import searchView from './views/searchView.js';
 import resultsView from './views/resultsView.js';
+import bookmarksView from './views/bookmarksView.js';
 import paginationView from './views/paginationView.js';
 
 // if (module.hot) {
@@ -28,6 +29,7 @@ const controlRecipes = async function () {
     // Update resultsView to highlight selected search results
     resultsView.update(model.getSearchResultsPage());
 
+    bookmarksView.update(model.state.bookmarks);
     // 1) Loading Recipe
     await model.loadRecipe(id);
 
@@ -81,6 +83,9 @@ const controlAddBookmark = function () {
   else model.deleteBookmark(model.state.recipe.id);
 
   recipeView.update(model.state.recipe);
+
+  console.log(model.state.bookmarks); // bookmarks array still added to state
+  bookmarksView.render(model.state.bookmarks);
 };
 
 const init = function () {
